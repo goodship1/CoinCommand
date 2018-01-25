@@ -16,6 +16,13 @@ def cp(coin,price):
 	
 
 
+def getting_currency_rates():
+	"""adding great british pounds to cp funcution"""
+	pass
+
+
+
+
 def formattingUnicodeCurrency(request,price):
 	unicode_format = ast.literal_eval(request)
 	eur = u'\u20ac'
@@ -25,7 +32,14 @@ def formattingUnicodeCurrency(request,price):
 		return eur+str(unicode_format[price])
 
 @cli.command()
-@click.argument(coin)
+@click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	pass
+	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
+	request_To_Url = requests.get(url)
+	click.echo(formattingUnicodeAlgorithm(request_To_Url.text))
+	
+
+def formattingUnicodeAlgorithm(request):
+	formatting_of_coinSnap_Shot = ast.literal_eval(request)
+	return formatting_of_coinSnap_Shot['Data']['Algorithm']
