@@ -23,7 +23,7 @@ def getting_currency_rates():
 @cli.command()
 @click.option('--total',help = 'total coins mined')
 @click.option('--diff',help = 'gets the mining diffiuclty')
-def mining(coin):
+def mined(coin):
 	pass
 
 @cli.command()
