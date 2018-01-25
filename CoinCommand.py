@@ -6,7 +6,7 @@ def cli():
     pass
 
 @cli.command()
-@click.option('--price' , help = 'gets price of coin')
+@click.option('--price'  help = 'gets price of coin')
 @click.argument('coin') 
 def cp(coin,price):
 	"""gets coin price """
@@ -20,8 +20,15 @@ def getting_currency_rates():
 	"""adding great british pounds to cp funcution"""
 	pass
 
+@cli.command()
+@click.option('--total',help = 'total coins mined')
+@click.option('--diff',help = 'gets the mining diffiuclty')
+def mining(coin):
+	pass
 
-
+@cli.command()
+def addr(address):
+	pass
 
 def formattingUnicodeCurrency(request,price):
 	unicode_format = ast.literal_eval(request)
