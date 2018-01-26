@@ -6,7 +6,7 @@ def cli():
     pass
 
 @cli.command()
-@click.option('--price'  help = 'gets price of coin')
+@click.option('--price'  help = 'Gets price of coin')
 @click.argument('coin') 
 def cp(coin,price):
 	"""gets coin price """
@@ -21,12 +21,13 @@ def getting_currency_rates():
 	pass
 
 @cli.command()
-@click.option('--total',help = 'total coins mined')
-@click.option('--diff',help = 'gets the mining diffiuclty')
+@click.option('--total',help = 'Total coins mined')
+@click.option('--diff',help = 'Gets the mining diffiuclty')
 def mined(coin):
 	pass
 
 @cli.command()
+@cli.option('--total' ,help  = "Gets the total transaction of the address")
 def addr(address):
 	pass
 
