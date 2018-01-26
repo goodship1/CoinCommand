@@ -13,8 +13,16 @@ def cp(coin,price):
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
 	request_To_Url = requests.get(url)
 	click.echo(formattingUnicodeCurrency(request_To_Url.text,price))
-	
 
+
+@cli.command()
+@click.option('--total'	,help = "Gets total number of transactions of coin in a 24 hour window")
+def transactions(coin):
+	pass
+
+
+def transaction_UniCode_Formatting(coin):
+	pass
 
 def getting_currency_rates():
 	"""adding great british pounds to cp funcution"""
@@ -27,9 +35,18 @@ def mined(coin):
 	pass
 
 @cli.command()
-@cli.option('--total' ,help  = "Gets the total transaction of the address")
-def addr(address):
+@click.option('--info' ,help  = "Gets information of address of transactions")
+@click.arguement('coin')
+@click.argument('address')
+def addr(coin,address):
+	"""only works for BTC and ETH"""
 	pass
+
+
+def address_Query(addr):
+	pass
+
+
 
 def formattingUnicodeCurrency(request,price):
 	unicode_format = ast.literal_eval(request)
