@@ -1,25 +1,49 @@
 import click
 import requests
 import ast
+
 @click.group()
 def cli():
     pass
 
 @cli.command()
-@click.option('--price'  help = 'Gets price of coin')
+@click.option('--price' ,help = 'Gets price of coin')
 @click.argument('coin') 
 def cp(coin,price):
 	"""gets coin price """
+	click.echo(cp_Request_To_Url(coin,price))
+	
+	
+
+
+def cp_Request_To_Url(coin,price):
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
 	request_To_Url = requests.get(url)
-	click.echo(formattingUnicodeCurrency(request_To_Url.text,price))
+	return formattingUnicodeCurrency(request_To_Url.text,price)
+
+	
+
+	
+	
+	
+def formattingUnicodeCurrency(request,price):
+	unicode_format = ast.literal_eval(request)
+	eur = u'\u20ac'
+	if(price == 'USD'):
+		return '$'+str(unicode_format[price])
+	if(price =='EUR'):
+		return eur+str(unicode_format[price])
+
 
 
 @cli.command()
 @click.option('--total'	,help = "Gets total number of transactions of coin in a 24 hour window")
 def transactions(coin):
 	pass
+	
 
+def transaction_Request_To_Url(coin):
+	pass
 
 def transaction_UniCode_Formatting(coin):
 	pass
@@ -36,10 +60,10 @@ def mined(coin):
 
 @cli.command()
 @click.option('--info' ,help  = "Gets information of address of transactions")
-@click.arguement('coin')
+@click.argument('coin')
 @click.argument('address')
 def addr(coin,address):
-	"""only works for BTC and ETH"""
+	"""only works for BTC and ETH and LTC"""
 	pass
 
 
@@ -47,14 +71,6 @@ def address_Query(addr):
 	pass
 
 
-
-def formattingUnicodeCurrency(request,price):
-	unicode_format = ast.literal_eval(request)
-	eur = u'\u20ac'
-	if(price == 'USD'):
-		return '$'+str(unicode_format[price])
-	if(price =='EUR'):
-		return eur+str(unicode_format[price])
 
 @cli.command()
 @click.argument('coin')
