@@ -22,8 +22,6 @@ def cp_Request_To_Url(coin,price):
 	return formattingUnicodeCurrency(request_To_Url.text,price)
 
 	
-
-	
 	
 	
 def formattingUnicodeCurrency(request,price):
@@ -54,9 +52,17 @@ def getting_currency_rates():
 
 @cli.command()
 @click.option('--total',help = 'Total coins mined')
-@click.option('--diff',help = 'Gets the mining diffiuclty')
+@click.option('--left',help = "Gets the Total coins left to  be mined")
 def mined(coin):
 	pass
+
+
+def mined_Request_to_url(coin):
+	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
+
+def formattingUnicodeMined(coin):
+	pass
+	
 
 @cli.command()
 @click.option('--info' ,help  = "Gets information of address of transactions")
@@ -78,9 +84,14 @@ def algo(coin):
 	""" gets the coin implementation algorithm"""
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_Url = requests.get(url)
-	click.echo(formattingUnicodeAlgorithm(request_To_Url.text))
+	click.echo(formattingUnicodeCoinSnap(request_To_Url.text))
 	
 
-def formattingUnicodeAlgorithm(request):
+
+def algo_request_To_Url():
+	pass
+
+
+def formattingUnicodeCoinSnapShot(request):
 	formatting_of_coinSnap_Shot = ast.literal_eval(request)
 	return formatting_of_coinSnap_Shot['Data']['Algorithm']
