@@ -33,23 +33,6 @@ def formattingUnicodeCurrency(request,price):
 		return eur+str(unicode_format[price])
 
 
-
-@cli.command()
-@click.option('--total'	,help = "Gets total number of transactions of coin in a 24 hour window")
-def transactions(coin):
-	pass
-	
-
-def transaction_Request_To_Url(coin):
-	pass
-
-def transaction_UniCode_Formatting(coin):
-	pass
-
-def getting_currency_rates():
-	"""adding great british pounds to cp funcution"""
-	pass
-
 @cli.command()
 @click.argument('coin')
 def mined(coin):
@@ -68,12 +51,10 @@ def formattingUnicodeMined(request):
 	
 
 @cli.command()
-@click.option('--info' ,help  = "Gets information of address of transactions")
-@click.argument('coin')
 @click.argument('address')
-def addr(coin,address):
-	"""only works for BTC and ETH and LTC"""
-	pass
+@click.agrugment("total")
+def addrBtc(address,total=0):
+	print('hello')
 
 
 def address_Query(addr):
