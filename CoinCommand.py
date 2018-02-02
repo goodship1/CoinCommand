@@ -1,7 +1,7 @@
 import click
 import requests
 import ast
-
+import tabulate
 @click.group()
 def cli():
     pass
@@ -53,12 +53,15 @@ def formattingUnicodeMined(request):
 @cli.command()
 @click.argument('address')
 def addrBtc(address):
-	pass
+	address_Query(address)
+	
 	
 
 
 def address_Query(addr):
-	pass
+	url = 'https://blockchain.info/rawaddr/%s'%addr
+	request_To_Url = requests.get(url)
+	
 
 
 
