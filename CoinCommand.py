@@ -52,9 +52,9 @@ def formattingUnicodeMined(request):
 
 @cli.command()
 @click.argument('address')
-@click.agrugment("total")
-def addrBtc(address,total=0):
-	print('hello')
+def addrBtc(address):
+	pass
+	
 
 
 def address_Query(addr):
