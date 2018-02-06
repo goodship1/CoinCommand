@@ -7,6 +7,7 @@ setup(
 	install_requires=[
 	'click',
 	'requests'
+	'tabulate'
 	],
 	entry_points='''
 		[console_scripts]
