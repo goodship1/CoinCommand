@@ -7,7 +7,7 @@ def cli():
     pass
 
 @cli.command()
-@click.option('--price' ,help = 'Gets price of coin')
+@click.option('--currency' ,help = 'Gets price of coin')
 @click.argument('coin') 
 def cp(coin,price):
 	"""gets coin price """
