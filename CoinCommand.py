@@ -37,6 +37,10 @@ def formattingUnicodeCurrency(request,price):
 @click.argument('coin')
 def mined(coin):
 	click.echo(mined_Request_To_Url(coin))
+	
+
+def left(coin):
+	pass
 
 
 def mined_Request_To_Url(coin):
