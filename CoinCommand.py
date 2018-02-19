@@ -42,6 +42,9 @@ def mined(coin):
 def left(coin):
 	pass
 
+def left_Request_To_Url(coin):
+	pass
+
 
 def mined_Request_To_Url(coin):
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
