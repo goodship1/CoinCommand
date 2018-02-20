@@ -1,7 +1,6 @@
 import click
 import requests
 import ast
-import tabulate
 @click.group()
 def cli():
     pass
