@@ -39,11 +39,6 @@ def mined(coin):
 	click.echo(mined_Request_To_Url(coin))
 	
 
-def left(coin):
-	pass
-
-def left_Request_To_Url(coin):
-	pass
 
 
 def mined_Request_To_Url(coin):
@@ -57,18 +52,6 @@ def formattingUnicodeMined(request):
 	return formattingMinedInformation['Data']['TotalCoinsMined']
 	
 
-@cli.command()
-@click.argument('address')
-def addrBtc(address):
-	address_Query(address)
-	
-	
-
-
-def address_Query(addr):
-	url = 'https://blockchain.info/rawaddr/%s'%addr
-	request_To_Url = requests.get(url)
-	
 
 
 
