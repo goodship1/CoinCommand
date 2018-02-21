@@ -13,3 +13,4 @@ CoinCommand algo  XVG gets the type of algorithm used for the coin
 
 
 
+# Installation
