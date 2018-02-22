@@ -8,9 +8,9 @@ def cli():
 @cli.command()
 @click.option('--currency' ,help = 'Gets price of coin')
 @click.argument('coin') 
-def cp(coin,price):
+def cp(coin,currency):
 	"""gets coin price """
-	click.echo(cp_Request_To_Url(coin,price))
+	click.echo(cp_Request_To_Url(coin,currency))
 	
 	
 
