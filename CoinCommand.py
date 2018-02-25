@@ -1,18 +1,21 @@
 import click
 import requests
 import ast
+
 @click.group()
 def cli():
     pass
 
 @cli.command()
-@click.option('--currency' ,help = 'Gets price of coin')
+@click.option('--currency',help = 'Gets price of coin')
 @click.argument('coin') 
 def cp(coin,currency):
 	"""gets coin price """
 	click.echo(cp_Request_To_Url(coin,currency))
 	
 	
+def change(coin):
+	pass
 
 
 def cp_Request_To_Url(coin,price):
