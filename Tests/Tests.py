@@ -2,12 +2,15 @@ import pytest
 import CoinCommand
 
 
-def Test_algo():
+def test_Algo():
     pass
 
 
-def Test_cp():
+def test_Cp():
     pass
 
-def Test_mined():
+def test_Mined():
+    pass
+
+def test_Social():
     pass
