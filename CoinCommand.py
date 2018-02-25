@@ -50,7 +50,8 @@ def formattingUnicodeMined(request):
 	formattingMinedInformation = ast.literal_eval(request)
 	return formattingMinedInformation['Data']['TotalCoinsMined']
 	
-
+def social(coin,news_Outlet):
+	pass
 
 
 
