@@ -1,9 +1,10 @@
 import pytest
-import CoinCommand
+import CoinCommandTest
 
+coin = 'BTC'
 
-def test_Algo():
-    pass
+def test_Algo_Return_Correct_Value():
+    assert CoinCommandTest.algo(coin) == "SHA256" 
 
 
 def test_Cp():
@@ -14,3 +15,6 @@ def test_Mined():
 
 def test_Social():
     pass
+
+def test_change():
+	pass
