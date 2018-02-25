@@ -4,3 +4,4 @@ python:
   - 3.0
  install:
  -  pip install click
+ -  pip install requests
