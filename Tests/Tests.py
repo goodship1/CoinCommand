@@ -24,6 +24,7 @@ def test_Cp_Euro_Return_Format():
 
 
 def test_Mined_Return_Float():
+	"""test to make sure mined returns the correct data type"""
 	assert type(CoinCommandTest.mined(btc)) == float
 	
 
