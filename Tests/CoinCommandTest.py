@@ -23,16 +23,16 @@ def cp_Request_To_Url(coin,price):
 	
 def formattingUnicodeCurrency(request,price):
 	unicode_format = ast.literal_eval(request)
-	eur = u'\u20ac'
+	euro = u'\u20ac'
 	if(price == 'USD'):
 		return '$'+str(unicode_format[price])
 	if(price =='EUR'):
-		return eur+str(unicode_format[price])
+		return euro+str(unicode_format[price])
 
 
 
 def mined(coin):
-	click.echo(mined_Request_To_Url(coin))
+	return mined_Request_To_Url(coin)
 	
 
 
