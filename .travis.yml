@@ -5,3 +5,6 @@ python:
  install:
  -  pip install click
  -  pip install requests
+ 
+ script:
+ -  python Tests.py
