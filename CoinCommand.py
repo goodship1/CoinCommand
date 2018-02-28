@@ -7,7 +7,7 @@ def cli():
     pass
 
 @cli.command()
-@click.option('--currency',help = 'Gets price of coin')
+@click.option('--currency',help = 'currency of coin')
 @click.argument('coin') 
 def cp(coin,currency):
 	"""gets coin price """
@@ -28,11 +28,11 @@ def cp_Request_To_Url(coin,price):
 	
 def formattingUnicodeCurrency(request,price):
 	unicode_format = ast.literal_eval(request)
-	eur = u'\u20ac'
+	euro = u'\u20ac'
 	if(price == 'USD'):
 		return '$'+str(unicode_format[price])
 	if(price =='EUR'):
-		return eur+str(unicode_format[price])
+		return euro+str(unicode_format[price])
 
 
 @cli.command()
@@ -52,8 +52,15 @@ def mined_Request_To_Url(coin):
 def formattingUnicodeMined(request):
 	formattingMinedInformation = ast.literal_eval(request)
 	return formattingMinedInformation['Data']['TotalCoinsMined']
-	
-def social(coin,news_Outlet):
+
+@cli.command()
+@click.argument('coin')
+@click.option('--news',help = 'news outlet')
+def social(coin,news):
+	pass
+
+
+def social_Url_Request(coin,news):
 	pass
 
 
