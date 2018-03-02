@@ -21,18 +21,18 @@ def change(coin):
 def cp_Request_To_Url(coin,price):
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
 	request_To_Url = requests.get(url)
-	return formattingUnicodeCurrency(request_To_Url.text,price)
+	return formatting_Unicode_Currency(request_To_Url.text,price)
 
 	
 	
 	
-def formattingUnicodeCurrency(request,price):
-	unicode_format = ast.literal_eval(request)
+def formatting_Unicode_Currency(request,price):
+	unicode_Format = ast.literal_eval(request)
 	euro = u'\u20ac'
 	if(price == 'USD'):
-		return '$'+str(unicode_format[price])
+		return '$'+str(unicode_Format[price])
 	if(price =='EUR'):
-		return euro+str(unicode_format[price])
+		return euro+str(unicode_Format[price])
 
 
 @cli.command()
@@ -46,12 +46,12 @@ def mined(coin):
 def mined_Request_To_Url(coin):
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_Url = requests.get(url)
-	return formattingUnicodeMined(request_To_Url.text)
+	return formatting_Unicode_Mined(request_To_Url.text)
 	
 
-def formattingUnicodeMined(request):
-	formattingMinedInformation = ast.literal_eval(request)
-	return formattingMinedInformation['Data']['TotalCoinsMined']
+def formatting_Unicode_Mined(request):
+	formatting_Mined_Information = ast.literal_eval(request)
+	return formatting_Mined_Information['Data']['TotalCoinsMined']
 
 @cli.command()
 @click.argument('coin')
@@ -77,11 +77,11 @@ def algo(coin):
 def algo_request_To_Url(coin):
 		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 		request_To_Url =  requests.get(url)
-		return formattingUnicodeCoinSnapShot(request_To_Url.text)
+		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
 		
 
 
 
-def formattingUnicodeCoinSnapShot(request):
-	formatting_of_coinSnap_Shot = ast.literal_eval(request)
-	return formatting_of_coinSnap_Shot['Data']['Algorithm']
+def formatting_Unicode_CoinSnapShot(request):
+	formatting_Of_CoinSnap_Shot = ast.literal_eval(request)
+	return formatting_Of_CoinSnap_Shot['Data']['Algorithm']
