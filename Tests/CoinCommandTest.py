@@ -22,12 +22,12 @@ def cp_Request_To_Url(coin,price):
 	
 	
 def formatting_Unicode_Currency(request,price):
-	unicode_format = ast.literal_eval(request)
+	unicode_Format = ast.literal_eval(request)
 	euro = u'\u20ac'
 	if(price == 'USD'):
-		return '$'+str(unicode_format[price])
+		return '$'+str(unicode_Format[price])
 	if(price =='EUR'):
-		return euro+str(unicode_format[price])
+		return euro+str(unicode_Format[price])
 
 
 
@@ -40,12 +40,12 @@ def mined(coin):
 def mined_Request_To_Url(coin):
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_Url = requests.get(url)
-	return formattingUnicodeMined(request_To_Url.text)
+	return formatting_Unicode_Mined(request_To_Url.text)
 	
 
 def formatting_Unicode_Mined(request):
-	formattingMinedInformation = ast.literal_eval(request)
-	return formattingMinedInformation['Data']['TotalCoinsMined']
+	formatting_Mined_Information = ast.literal_eval(request)
+	return formatting_Mined_Information['Data']['TotalCoinsMined']
 	
 def social(coin,news_Outlet):
 	pass
@@ -63,11 +63,11 @@ def algo(coin):
 def algo_Request_To_Url(coin):
 		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 		request_To_Url =  requests.get(url)
-		return formattingUnicodeCoinSnapShot(request_To_Url.text)
+		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
 		
 
 
 
 def formatting_Unicode_CoinSnapShot(request):
-	formatting_of_coinSnap_Shot = ast.literal_eval(request)
-	return formatting_of_coinSnap_Shot['Data']['Algorithm']
+	formatting_Of_coinSnap_Shot = ast.literal_eval(request)
+	return formatting_Of_CoinSnap_Shot['Data']['Algorithm']
