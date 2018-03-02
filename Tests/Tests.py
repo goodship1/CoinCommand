@@ -1,10 +1,12 @@
 import pytest
 import CoinCommandTest
+import requests 
+
 
 btc = 'BTC'
 xvg = 'XVG'
 dollar = 'USD'
-euro_sign = u'\u20ac'
+euro_Sign = u'\u20ac'
 euro = 'EUR'
 dollar_Sign = '$'
 
@@ -28,9 +30,17 @@ def test_Mined_Return_Float():
 	assert type(CoinCommandTest.mined(btc)) == float
 	
 
+def test_FormattingUnicodeCurrency():
+	pass
+
+
+def test_ FormattingUnicodeMined():
+	pass
+	
+
 
 def test_Social():
     pass
 
-def test_change():
+def test_Change():
 	pass
