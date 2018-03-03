@@ -13,14 +13,17 @@ CoinCommand algo  XVG gets the type of algorithm used for the coin
 
 
 
-# Installation
+# Demo
+![alt-text](https://user-images.githubusercontent.com/10147276/36940485-86c07e50-1f3b-11e8-92d5-b8c0aa2eb6bb.gif)
 
+
+
+
+
+# Installation
 
 Clone repo
 
 cd CoinCommand Directory 
 
 Run following command sudo python setup.py install
-
-
-# Demo
