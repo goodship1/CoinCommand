@@ -39,8 +39,3 @@ def test_ FormattingUnicodeMined():
 	
 
 
-def test_Social():
-    pass
-
-def test_Change():
-	pass
