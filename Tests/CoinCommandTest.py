@@ -11,7 +11,7 @@ def coin_Doesnt_Exist():
 def cp(coin,currency):
 	"""gets coin price """
 	try:
-		cp_Request_To_Url(coin,currency)
+		return cp_Request_To_Url(coin,currency)
 	except Exception as err:
 		return "coin or currency doesnt exist"
 	
@@ -37,8 +37,10 @@ def formatting_Unicode_Currency(request,price):
 
 
 def mined(coin):
-	return mined_Request_To_Url(coin)
-	
+	try:
+		return mined_Request_To_Url(coin)
+	except Exception as err:
+		return coin_Doesnt_Exist()
 
 
 
@@ -58,9 +60,10 @@ def formatting_Unicode_Mined(request):
 
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	algo_Request_To_Url(coin)
-	return algo_Request_To_Url(coin)
-	
+	try:
+		return algo_Request_To_Url(coin)
+	except Exception as err:
+		return(coin_Doesnt_Exist())
 
 
 def algo_Request_To_Url(coin):
