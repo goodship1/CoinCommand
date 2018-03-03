@@ -15,7 +15,7 @@ def cp(coin,currency):
 def cp_Request_To_Url(coin,price):
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
 	request_To_Url = requests.get(url)
-	return formattingUnicodeCurrency(request_To_Url.text,price)
+	return formatting_Unicode_Currency(request_To_Url.text,price)
 
 	
 	
@@ -52,8 +52,8 @@ def formatting_Unicode_Mined(request):
 
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	algo_request_To_Url(coin)
-	return algo_request_To_Url(coin)
+	algo_Request_To_Url(coin)
+	return algo_Request_To_Url(coin)
 	
 
 
@@ -66,5 +66,5 @@ def algo_Request_To_Url(coin):
 
 
 def formatting_Unicode_CoinSnapShot(request):
-	formatting_Of_coinSnap_Shot = ast.literal_eval(request)
-	return formatting_Of_CoinSnap_Shot['Data']['Algorithm']
+	formatting_Of_CoinSnapShot = ast.literal_eval(request)
+	return formatting_Of_CoinSnapShot['Data']['Algorithm']
