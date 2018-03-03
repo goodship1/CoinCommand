@@ -14,8 +14,7 @@ def cp(coin,currency):
 	click.echo(cp_Request_To_Url(coin,currency))
 	
 	
-def change(coin):
-	pass
+
 
 
 def cp_Request_To_Url(coin,price):
@@ -53,15 +52,6 @@ def formatting_Unicode_Mined(request):
 	formatting_Mined_Information = ast.literal_eval(request)
 	return formatting_Mined_Information['Data']['TotalCoinsMined']
 
-@cli.command()
-@click.argument('coin')
-@click.option('--news',help = 'news outlet')
-def social(coin,news):
-	pass
-
-
-def social_Url_Request(coin,news):
-	pass
 
 
 
