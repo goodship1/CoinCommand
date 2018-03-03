@@ -10,11 +10,10 @@ def coin_Doesnt_Exist():
 
 def cp(coin,currency):
 	"""gets coin price """
-	
 	try:
 		cp_Request_To_Url(coin,currency)
 	except Exception as err:
-		print(coin_Doesnt_Exist())
+		return "coin or currency doesnt exist"
 	
 
 

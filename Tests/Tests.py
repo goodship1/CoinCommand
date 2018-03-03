@@ -14,19 +14,20 @@ def test_Algo_Return_Correct_Value():
     assert CoinCommandTest.algo(btc) == "SHA256" 
 
 
-def test_Cp_Dollar_Return_Format():
-	"""Test to show the correct Currency Format of $ """
-	cp_return = str(CoinCommandTest.cp(btc,dollar))
-	assert cp_return[0] == dollar_Sign
- 
-
-def test_Cp_Euro_Return_Format():
-	cp_return = CoinCommandTest.cp(btc,euro)
-	assert cp_return[0]!=dollar_Sign
-
+def test_Cp_Dollar_Return():
+	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(btc,dollar)
+	request = requests.get(url)
+	cp_Return = str(CoinCommandTest.formatting_Unicode_Currency(request.text,dollar))
+	return cp_Return[0] == dollar_Sign
+	
+	
+	
+def test_Cp_Dollar_Return():
+	pass
 
 def test_of_Coin_NotPresent():
-	CoinCommandTest.cp("bbbb",dollar)
+	call_To_Cp = CoinCommandTest.cp("bbbb","USD")
+	assert(call_To_Cp) == "coin or currency doesnt exist"
 	
 	
 
