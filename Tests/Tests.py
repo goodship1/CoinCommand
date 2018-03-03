@@ -26,7 +26,8 @@ def test_Cp_Euro_Return_Format():
 
 
 def test_of_Coin_NotPresent():
-	pass
+	CoinCommandTest.cp("bbbb",dollar)
+	
 	
 
 def test_Mined_Return_Float():

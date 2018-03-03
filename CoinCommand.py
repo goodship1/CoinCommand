@@ -5,14 +5,21 @@ import ast
 @click.group()
 def cli():
     pass
+    
+    
+
+def coin_Doesnt_Exist():
+	return "Coin Doesnt Exist"
 
 @cli.command()
 @click.option('--currency',help = 'currency of coin')
 @click.argument('coin') 
 def cp(coin,currency):
 	"""gets coin price """
-	click.echo(cp_Request_To_Url(coin,currency))
-	
+	try:
+		click.echo(cp_Request_To_Url(coin,currency))
+	except Exception as err:
+		print("Coin or Currency Doesnt Exist")
 	
 
 
@@ -37,9 +44,10 @@ def formatting_Unicode_Currency(request,price):
 @cli.command()
 @click.argument('coin')
 def mined(coin):
-	click.echo(mined_Request_To_Url(coin))
-	
-
+	try:
+		click.echo(mined_Request_To_Url(coin))
+	except Exception as err:
+		print(coin_Doesnt_Exist())
 
 
 def mined_Request_To_Url(coin):
@@ -59,8 +67,10 @@ def formatting_Unicode_Mined(request):
 @click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	algo_request_To_Url(coin)
-	click.echo(algo_request_To_Url(coin))
+	try:
+		click.echo(algo_request_To_Url(coin))
+	except Exception as err:
+		print(coin_Doesnt_Exist())
 	
 
 

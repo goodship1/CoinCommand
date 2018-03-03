@@ -4,10 +4,17 @@ import ast
 
 """some modifactions to coinCommand to allow an easier way to test cli"""
 
+def coin_Doesnt_Exist():
+	return "coin does not exist"
+
+
 def cp(coin,currency):
 	"""gets coin price """
-	return cp_Request_To_Url(coin,currency)
 	
+	try:
+		cp_Request_To_Url(coin,currency)
+	except Exception as err:
+		print(coin_Doesnt_Exist())
 	
 
 
