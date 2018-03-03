@@ -67,5 +67,8 @@ def test_Mined_Incorrecnt_Coin():
 	
 	
 def test_Formatting_Unicode_CoinSnapShot():
-	pass
+	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%btc
+	request_To_Url = requests.get(url)
+	return_CoinSnapShot = CoinCommandTest.formatting_Unicode_CoinSnapShot(request_To_Url.text)
+	assert(type(return_CoinSnapShot)) == str
 
