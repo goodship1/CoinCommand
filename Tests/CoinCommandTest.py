@@ -9,8 +9,7 @@ def cp(coin,currency):
 	return cp_Request_To_Url(coin,currency)
 	
 	
-def change(coin):
-	pass
+
 
 
 def cp_Request_To_Url(coin,price):
@@ -46,9 +45,7 @@ def mined_Request_To_Url(coin):
 def formatting_Unicode_Mined(request):
 	formatting_Mined_Information = ast.literal_eval(request)
 	return formatting_Mined_Information['Data']['TotalCoinsMined']
-	
-def social(coin,news_Outlet):
-	pass
+
 
 
 
