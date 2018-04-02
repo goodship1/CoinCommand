@@ -79,8 +79,11 @@ def algo_request_To_Url(coin):
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
 		
-
-
+@click.command()
+def get_Social():
+	pass
+		
+		
 
 def formatting_Unicode_CoinSnapShot(request):
 	formatting_Of_CoinSnap_Shot = ast.literal_eval(request)
