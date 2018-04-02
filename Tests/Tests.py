@@ -10,6 +10,10 @@ euro_Sign = u'\u20ac'
 euro = 'EUR'
 dollar_Sign = '$'
 
+
+def test_Get_social():
+	pass
+
 def test_Algo_Return_Correct_Value():
     assert CoinCommandTest.algo(btc) == "SHA256" 
 
