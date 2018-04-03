@@ -5,40 +5,41 @@ import ast
 @click.group()
 def cli():
     pass
-    
-    
 
-def coin_Doesnt_Exist():
+
+
+def coin_Doesnt_exist():
 	return "Coin Doesnt Exist"
 
 @cli.command()
 @click.option('--currency',help = 'currency of coin')
-@click.argument('coin') 
+@click.argument('coin')
 def cp(coin,currency):
 	"""gets coin price """
 	try:
 		click.echo(cp_Request_To_Url(coin,currency))
 	except Exception as err:
 		print("Coin or Currency Doesnt Exist")
-	
 
 
 
-def cp_Request_To_Url(coin,price):
+
+def cp_Request_to_Url(coin,price):
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
-	request_To_Url = requests.get(url)
-	return formatting_Unicode_Currency(request_To_Url.text,price)
+	request_to_Url = requests.get(url)
+	return formatting_Unicode_currency(request_To_url.text,price)
 
-	
-	
-	
-def formatting_Unicode_Currency(request,price):
+
+
+
+def formatting_Unicode_currency(request,price):
 	unicode_Format = ast.literal_eval(request)
 	euro = u'\u20ac'
 	if(price == 'USD'):
 		return '$'+str(unicode_Format[price])
 	if(price =='EUR'):
 		return euro+str(unicode_Format[price])
+    #todo add support to for £
 
 
 @cli.command()
@@ -50,13 +51,13 @@ def mined(coin):
 		print(coin_Doesnt_Exist())
 
 
-def mined_Request_To_Url(coin):
+def mined_Request_to_Url(coin):
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_Url = requests.get(url)
-	return formatting_Unicode_Mined(request_To_Url.text)
-	
+	return formatting_Unicode_mined(request_To_Url.text)
 
-def formatting_Unicode_Mined(request):
+
+def formatting_Unicode_mined(request):
 	formatting_Mined_Information = ast.literal_eval(request)
 	return formatting_Mined_Information['Data']['TotalCoinsMined']
 
@@ -71,19 +72,20 @@ def algo(coin):
 		click.echo(algo_request_To_Url(coin))
 	except Exception as err:
 		print(coin_Doesnt_Exist())
-	
+
 
 
 def algo_request_To_Url(coin):
 		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
-		
+
 @click.command()
 def get_Social():
 	pass
-		
-		
+    #todo allow the user to get social
+
+
 
 def formatting_Unicode_CoinSnapShot(request):
 	formatting_Of_CoinSnap_Shot = ast.literal_eval(request)
