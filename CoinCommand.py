@@ -14,6 +14,7 @@ def coin_Doesnt_exist():
 
 def connection_Error():
     #error handling to handle http 400 status
+    #todo implement error handling for 400 status
     return "no connection"
 
 @cli.command()
@@ -30,6 +31,8 @@ def cp(coin,currency):
 
 
 def cp_Request_to_Url(coin,price):
+
+    """Makes request to  https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"""
 	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
 	request_to_Url = requests.get(url)
 	return formatting_Unicode_currency(request_To_url.text,price)
@@ -40,7 +43,6 @@ def cp_Request_to_Url(coin,price):
 def formatting_Unicode_currency(request,price):
 
     """formatting unicode currency formats the json data to get price"""
-
 	unicode_Format = ast.literal_eval(request)
 	euro = u'\u20ac'
 	if(price == 'USD'):
@@ -53,6 +55,7 @@ def formatting_Unicode_currency(request,price):
 @cli.command()
 @click.argument('coin')
 def mined(coin):
+    """Mined gets the total coins mined"""
 	try:
 		click.echo(mined_Request_To_Url(coin))
 	except Exception as err:
@@ -60,12 +63,14 @@ def mined(coin):
 
 
 def mined_Request_to_Url(coin):
+    """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?"""
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_url = requests.get(url)
 	return formatting_Unicode_mined(request_To_url.text)
 
 
 def formatting_Unicode_mined(request):
+    """formats the json request  data from coinsnapshot"""
 	formatting_Mined_information = ast.literal_eval(request)
 	return formatting_Mined_information['Data']['TotalCoinsMined']
 
@@ -77,13 +82,14 @@ def formatting_Unicode_mined(request):
 def algo(coin):
 	""" gets the coin implementation algorithm"""
 	try:
-		click.echo(algo_request_To_Url(coin))
+		click.echo(algo_request_to_Url(coin))
 	except Exception as err:
 		print(coin_Doesnt_exist())
 
 
 
 def algo_Request_to_Url(coin):
+    """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD"""
 		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_coinsnapshot(request_To_Url.text)
@@ -92,6 +98,7 @@ def algo_Request_to_Url(coin):
 
 
 def formatting_Unicode_coinsnapshot(request):
+    """formats request to data from coinsnapshot buts get algorithm data"""
 	formatting_Of_coinsnapshot = ast.literal_eval(request)
 	return formatting_Of_coinsnapshot['Data']['Algorithm']
 
