@@ -4,28 +4,28 @@ import ast
 
 """some modifactions to coinCommand to allow an easier way to test cli"""
 
-def coin_Doesnt_Exist():
+def coin_Doesnt_exist():
 	return "coin does not exist"
 
 
 def cp(coin,currency):
 	"""gets coin price """
 	try:
-		return cp_Request_To_Url(coin,currency)
+		return cp_Request_to_Url(coin,currency)
 	except Exception as err:
 		return "coin or currency doesnt exist"
-	
 
 
 
-def cp_Request_To_Url(coin,price):
-	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
-	request_To_Url = requests.get(url)
-	return formatting_Unicode_Currency(request_To_Url.text,price)
 
-	
-	
-	
+def cp_Request_to_Url(coin,price):
+	url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
+	request_to_Url = requests.get(url)
+	return formatting_Unicode_currency(request_To_url.text,price)
+
+
+
+
 def formatting_Unicode_Currency(request,price):
 	unicode_Format = ast.literal_eval(request)
 	euro = u'\u20ac'
@@ -48,7 +48,7 @@ def mined_Request_To_Url(coin):
 	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 	request_To_Url = requests.get(url)
 	return formatting_Unicode_Mined(request_To_Url.text)
-	
+
 
 def formatting_Unicode_Mined(request):
 	formatting_Mined_Information = ast.literal_eval(request)
@@ -70,7 +70,7 @@ def algo_Request_To_Url(coin):
 		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
-		
+
 
 
 

@@ -33,9 +33,9 @@ def cp(coin,currency):
 def cp_Request_to_Url(coin,price):
 
     """Makes request to  https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"""
-	url = "https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
-	request_to_Url = requests.get(url)
-	return formatting_Unicode_currency(request_To_url.text,price)
+    url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
+    request_to_Url = requests.get(url)
+    return formatting_Unicode_currency(request_To_url.text,price)
 
 
 
@@ -43,11 +43,11 @@ def cp_Request_to_Url(coin,price):
 def formatting_Unicode_currency(request,price):
 
     """formatting unicode currency formats the json data to get price"""
-	unicode_Format = ast.literal_eval(request)
-	euro = u'\u20ac'
-	if(price == 'USD'):
+    unicode_Format = ast.literal_eval(request)
+    euro = u'\u20ac'
+    if(price == 'USD'):
 		return '$'+str(unicode_Format[price])
-	if(price =='EUR'):
+    if(price =='EUR'):
 		return euro+str(unicode_Format[price])
     #Todo add support to for £
 
@@ -56,23 +56,23 @@ def formatting_Unicode_currency(request,price):
 @click.argument('coin')
 def mined(coin):
     """Mined gets the total coins mined"""
-	try:
-		click.echo(mined_Request_To_Url(coin))
-	except Exception as err:
+    try:
+	    click.echo(mined_Request_To_Url(coin))
+    except Exception as err:
 		print(coin_doesnt_Exist())
 
 
 def mined_Request_to_Url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?"""
-	url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
-	request_To_url = requests.get(url)
-	return formatting_Unicode_mined(request_To_url.text)
+    url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
+    request_To_url = requests.get(url)
+    return formatting_Unicode_mined(request_To_url.text)
 
 
 def formatting_Unicode_mined(request):
     """formats the json request  data from coinsnapshot"""
-	formatting_Mined_information = ast.literal_eval(request)
-	return formatting_Mined_information['Data']['TotalCoinsMined']
+    formatting_Mined_information = ast.literal_eval(request)
+    return formatting_Mined_information['Data']['TotalCoinsMined']
 
 
 
@@ -90,17 +90,17 @@ def algo(coin):
 
 def algo_Request_to_Url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD"""
-		url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
-		request_To_Url =  requests.get(url)
-		return formatting_Unicode_coinsnapshot(request_To_Url.text)
+        url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
+        request_To_Url =  requests.get(url)
+        return formatting_Unicode_coinsnapshot(request_To_Url.text)
 
 
 
 
 def formatting_Unicode_coinsnapshot(request):
     """formats request to data from coinsnapshot buts get algorithm data"""
-	formatting_Of_coinsnapshot = ast.literal_eval(request)
-	return formatting_Of_coinsnapshot['Data']['Algorithm']
+    formatting_Of_coinsnapshot = ast.literal_eval(request)
+    return formatting_Of_coinsnapshot['Data']['Algorithm']
 
 
 
