@@ -18,9 +18,9 @@ CoinCommand algo  XVG gets the type of algorithm used for the coin
 
 
 
-
+# Dependencies
+- Click
+- Run dependencies.sh to install required dependencies
 
 # Installation
-
-
-clone and  sudo python setup.py install
+- If dependencies installe run setup.py
