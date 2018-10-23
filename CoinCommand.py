@@ -113,7 +113,6 @@ def get_Social():
 
 
 def request_To_social():
-    #funcution which gets socail request formatting_Mined_information
      pass
 
 @click.command()
