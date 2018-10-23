@@ -71,8 +71,26 @@ def algo_Request_To_Url(coin):
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
 
+def get_Social(social):
+	pass
+    #todo allow the user to get social
 
 
+
+def request_To_social(request):
+    pass
+
+def formatting_Unicode_social(request):
+	pass
+
+def get_News(news):
+	pass
+
+def request_to_News(request):
+	pass
+
+def formatting_Unicode_news(request):
+	pass
 
 def formatting_Unicode_CoinSnapShot(request):
 	formatting_Of_CoinSnapShot = ast.literal_eval(request)
