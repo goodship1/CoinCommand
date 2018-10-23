@@ -112,9 +112,21 @@ def get_Social():
 
 
 
-def request_to_Social():
+def request_To_social():
     #funcution which gets socail request formatting_Mined_information
+     pass
+
+@click.command()
+@click.arguments(news)
+def get_News():
+	pass
+
+def request_To_news():
+	pass
+
+def formatting_News_unicode():
+	pass
 
 
-def formatting_social_Unicode():
+def formatting_Social_unicode():
     pass
