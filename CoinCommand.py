@@ -110,7 +110,8 @@ def get_Social():
 	pass
     #todo allow the user to get social
 
-
+def get_Coid_id():
+	pass
 
 def request_To_social():
      pass
