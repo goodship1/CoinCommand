@@ -110,9 +110,12 @@ def formatting_Unicode_coinsnapshot(request):
 @click.arguments(news)
 def get_News():
 	pass
+	
 
-def request_To_news():
-	pass
+def request_To_news(request):
+	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
+	request_To_url = requests.get(url)
+	
 
 def formatting_News_unicode():
 	pass
