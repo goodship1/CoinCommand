@@ -104,17 +104,7 @@ def formatting_Unicode_coinsnapshot(request):
 
 
 
-@click.command()
-@click.argument('socialmedia')
-def get_Social():
-	pass
-    #todo allow the user to get social
 
-def get_Coid_id():
-	pass
-
-def request_To_social():
-     pass
 
 @click.command()
 @click.arguments(news)
@@ -128,5 +118,4 @@ def formatting_News_unicode():
 	pass
 
 
-def formatting_Social_unicode():
-    pass
+
