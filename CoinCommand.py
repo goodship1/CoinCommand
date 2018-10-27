@@ -53,7 +53,7 @@ def formatting_Unicode_currency(request,price):
 
 
 @cli.command()
-@click.argument('coin')
+@click.argument('coin',help='total coins mined')
 def mined(coin):
     """Mined gets the total coins mined"""
     try:
@@ -78,7 +78,7 @@ def formatting_Unicode_mined(request):
 
 
 @cli.command()
-@click.argument('coin')
+@click.argument('coin',help = 'Algorithm of coined used in protocol')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
 	try:
@@ -107,7 +107,7 @@ def formatting_Unicode_coinsnapshot(request):
 
 
 @click.command()
-@click.arguments(news)
+@click.arguments(news,help='Gets current news')
 def get_News():
 	pass
 	
