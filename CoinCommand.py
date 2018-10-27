@@ -115,9 +115,11 @@ def get_News():
 def request_To_news(request):
 	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
 	request_To_url = requests.get(url)
+	return formatting_News_unicode(request_To_url.text)
+	
 	
 
-def formatting_News_unicode():
+def formatting_News_unicode(request):
 	pass
 
 
