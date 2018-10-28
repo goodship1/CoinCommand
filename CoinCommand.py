@@ -70,10 +70,8 @@ def formatting_Unicode_mined(request):
 @click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	try:
-		click.echo(algo_request_to_Url(coin))
-	except Exception as err:
-		print(coin_Doesnt_exist())
+	click.echo(algo_Request_to_Url(coin))
+
 
 
 
@@ -96,9 +94,9 @@ def formatting_Unicode_coinsnapshot(request):
 
 
 @click.command()
-@click.argument('news')
-def news(news='EN'):
-	click.echo(request_To_url(news))
+@click.argument('language')
+def news(language):
+	click.echo(request_To_url(language))
 	
 
 def request_To_news(request,news):
