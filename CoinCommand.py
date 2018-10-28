@@ -22,10 +22,7 @@ def connection_Error():
 @click.argument('coin')
 def cp(coin,currency):
 	"""gets coin price """
-	try:
-		click.echo(cp_Request_To_url(coin,currency))
-	except Exception as err:
-		print("Coin or Currency Doesnt Exist")
+	click.echo(cp_Request_to_Url(coin,currency))
 
 
 
@@ -34,7 +31,7 @@ def cp_Request_to_Url(coin,price):
 
     """Makes request to  https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"""
     url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
-    request_to_Url = requests.get(url)
+    request_To_url = requests.get(url)
     return formatting_Unicode_currency(request_To_url.text,price)
 
 
@@ -51,9 +48,12 @@ def formatting_Unicode_currency(request,price):
 		return euro+str(unicode_Format[price])
     #Todo add support to for £
 
+def price_Helper():
+	pass
+
 
 @cli.command()
-@click.argument('coin',help='total coins mined')
+@click.argument('coin')
 def mined(coin):
     """Mined gets the total coins mined"""
     try:
@@ -78,7 +78,7 @@ def formatting_Unicode_mined(request):
 
 
 @cli.command()
-@click.argument('coin',help = 'Algorithm of coined used in protocol')
+@click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
 	try:
@@ -90,9 +90,9 @@ def algo(coin):
 
 def algo_Request_to_Url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD"""
-        url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
-        request_To_Url =  requests.get(url)
-        return formatting_Unicode_coinsnapshot(request_To_Url.text)
+    url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
+    request_To_Url =  requests.get(url)
+    return formatting_Unicode_coinsnapshot(request_To_Url.text)
 
 
 
@@ -107,20 +107,21 @@ def formatting_Unicode_coinsnapshot(request):
 
 
 @click.command()
-@click.arguments(news,help='Gets current news')
-def get_News():
-	pass
+@click.argument('news')
+def news(news='EN'):
+	click.echo(request_To_url(news))
 	
 
-def request_To_news(request):
-	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
+def request_To_news(request,news):
+	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=%s'%news
 	request_To_url = requests.get(url)
 	return formatting_News_unicode(request_To_url.text)
 	
 	
 
 def formatting_News_unicode(request):
-	pass
+	formatting_News_information = ast.literal_eval(request)
+	return formatting_News_information
 
 
 
