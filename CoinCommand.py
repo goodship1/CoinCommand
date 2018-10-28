@@ -8,14 +8,7 @@ def cli():
 
 
 
-def coin_Doesnt_exist():
-	return "Coin Doesnt Exist"
 
-
-def connection_Error():
-    #error handling to handle http 400 status
-    #todo implement error handling for 400 status
-    return "no connection"
 
 @cli.command()
 @click.option('--currency',help = 'currency of coin')
@@ -56,11 +49,7 @@ def price_Helper():
 @click.argument('coin')
 def mined(coin):
     """Mined gets the total coins mined"""
-    try:
-	    click.echo(mined_Request_To_Url(coin))
-    except Exception as err:
-		print(coin_doesnt_Exist())
-
+    click.echo(mined_Request_to_Url(coin))
 
 def mined_Request_to_Url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?"""
