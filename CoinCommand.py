@@ -8,13 +8,11 @@ def cli():
 
 
 
-
-
 @cli.command()
-@click.option('--currency',help = 'currency of coin')
+@click.option('--currency',default = 'USD',help = 'currency of coin')
 @click.argument('coin')
 def cp(coin,currency):
-	"""gets coin price """
+	"""Gets coin price """
 	click.echo(cp_Request_to_Url(coin,currency))
 
 
@@ -93,14 +91,15 @@ def formatting_Unicode_coinsnapshot(request):
 
 
 
-@click.command()
+@cli.command()
 @click.argument('language')
 def news(language):
-	click.echo(request_To_url(language))
+	"""gets current news articles about coins"""
+	click.echo(request_To_news(language))
 	
 
-def request_To_news(request,news):
-	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=%s'%news
+def request_To_news(language):
+	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=%s'%language
 	request_To_url = requests.get(url)
 	return formatting_News_unicode(request_To_url.text)
 	
