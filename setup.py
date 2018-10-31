@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
 	name = 'CoinCommand',
-	version = '0.1',
+	version = '0.2',
 	py_modules=['CoinCommand'],
 	install_requires=[
 	'click',
