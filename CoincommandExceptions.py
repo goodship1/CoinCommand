@@ -1,6 +1,6 @@
-import exceptions
+import Exception
 
-class CoinCommandExceptions(exception):
+class CoinCommandExceptions(Exception):
 
     def connectionError(self):
         return "error no connection"
