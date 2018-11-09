@@ -10,3 +10,5 @@ class CoinDoesntExist(CoinCommandExceptions):
 class ConnectionError(CoinCommandExceptions):
 	pass
 
+class LanguageDoenstExist(CoinCommandExceptions):
+	pass
