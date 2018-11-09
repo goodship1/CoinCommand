@@ -1,11 +1,12 @@
-import Exception
 
 class CoinCommandExceptions(Exception):
+	pass
+	
 
-    def connectionError(self):
-        return "error no connection"
-    
-    def coinOrcurrencyDoesntexist(self):
-		return "coin or corrency doesnt exist"
-		
+class CoinDoesntExist(CoinCommandExceptions):
+	pass
+	
+
+class ConnectionError(CoinCommandExceptions):
+	pass
 

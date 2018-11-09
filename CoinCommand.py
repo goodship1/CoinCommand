@@ -1,6 +1,9 @@
 import click
 import requests
 import ast
+from CoincommandExceptions import CoinDoesntExist
+
+
 
 @click.group()
 def cli():
@@ -13,9 +16,10 @@ def cli():
 @click.argument('coin')
 def cp(coin,currency):
 	"""Gets coin price """
-	click.echo(cp_Request_to_Url(coin,currency))
-
-
+	try:
+		click.echo(cp_Request_to_Url(coin,currency))
+	except Exception as err:
+		raise(CoinDoesntExist("coin doesn't"))
 
 
 def cp_Request_to_Url(coin,price):
@@ -47,7 +51,10 @@ def price_Helper():
 @click.argument('coin')
 def mined(coin):
     """Mined gets the total coins mined"""
-    click.echo(mined_Request_to_Url(coin))
+    try:
+		click.echo(mined_Request_to_Url(coin))
+    except Exception as err:
+		raise(CoinDoesntExist("coin doesnt exist"))
 
 def mined_Request_to_Url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?"""
@@ -68,8 +75,11 @@ def formatting_Unicode_mined(request):
 @click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	click.echo(algo_Request_to_Url(coin))
-
+	try:
+		click.echo(algo_Request_to_Url(coin))
+	except Exception as err:
+		raise(CoinDoesntExist("coin doesnt exist"))
+		
 
 
 
