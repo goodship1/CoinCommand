@@ -11,9 +11,6 @@ euro = 'EUR'
 dollar_Sign = '$'
 
 
-def test_Get_social():
-	pass
-
 def test_Algo_Return_Correct_Value():
     assert CoinCommandTest.algo(btc) == "SHA256" 
 
@@ -76,3 +73,5 @@ def test_Formatting_Unicode_CoinSnapShot():
 	return_CoinSnapShot = CoinCommandTest.formatting_Unicode_CoinSnapShot(request_To_Url.text)
 	assert(type(return_CoinSnapShot)) == str
 
+def test_news():
+	pass
