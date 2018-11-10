@@ -69,17 +69,21 @@ def algo_Request_To_Url(coin):
 		request_To_Url =  requests.get(url)
 		return formatting_Unicode_CoinSnapShot(request_To_Url.text)
 
-
-
-def get_News(news):
-	pass
-
-def request_to_News(request):
-	pass
-
-def formatting_Unicode_news(request):
-	pass
-
 def formatting_Unicode_CoinSnapShot(request):
 	formatting_Of_CoinSnapShot = ast.literal_eval(request)
 	return formatting_Of_CoinSnapShot['Data']['Algorithm']
+
+def get_News():
+	return request_To_news
+
+def request_to_News():
+	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
+	request_To_url = requests.get(url)
+	return  formatting_Unicode_news(request_To_url.text)
+	
+
+def formatting_Unicode_news(request):
+	formatting_News_unicode = ast.literal_eval(request)
+	return formatting_News_unicode
+
+
