@@ -73,7 +73,7 @@ def formatting_Unicode_CoinSnapShot(request):
 	formatting_Of_CoinSnapShot = ast.literal_eval(request)
 	return formatting_Of_CoinSnapShot['Data']['Algorithm']
 
-def get_News():
+def news():
 	return request_To_news
 
 def request_to_News():

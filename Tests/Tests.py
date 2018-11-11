@@ -74,7 +74,9 @@ def test_Formatting_unicode_Coinsnapshot():
 	assert(type(return_CoinSnapShot)) == str
 
 def test_news():
-	pass
+	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN'
+	return_News = CoinCommandTest.news()
+	assert(return_News)==CoinCommand.formatting_Unicode_news(url)
 
 def test_Unicode_Formatting():
 	pass
