@@ -75,3 +75,9 @@ def test_Formatting_Unicode_CoinSnapShot():
 
 def test_news():
 	pass
+
+def test_Unicode_Formatting():
+	pass
+	
+def test_Request_url():
+	pass
