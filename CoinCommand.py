@@ -19,7 +19,7 @@ def cp(coin,currency):
 	try:
 		click.echo(cp_Request_to_Url(coin,currency))
 	except Exception as err:
-		raise(CoinDoesntExist("coin doesn't"))
+		raise(CoinDoesntExist("coin doesn't exist"))
 
 
 def cp_Request_to_Url(coin,price):
