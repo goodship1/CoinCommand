@@ -1,13 +1,15 @@
 # CoinCommand
-Command line interface for getting Crypto-Currency information such as price , Total mined  and the algorithm used in the implementation of the Crypto-Currency
+Command line interface for getting CryptoCurrency information.
 
-# Commands
+# Examples
 
-CoinCommand cp -- currency USD BTC Grabs the current price of Coin
+CoinCommand cp -- currency USD 
 
-CoinCommand mined  BTC gets the total of the coins mined
+CoinCommand mined  BTC 
 
-CoinCommand algo  XVG gets the type of algorithm used for the coin
+CoinCommand algo  XVG 
+
+CoinCommand news EN
 
 
 
@@ -20,7 +22,7 @@ CoinCommand algo  XVG gets the type of algorithm used for the coin
 
 # Dependencies
 - Click
-- Run dependencies.sh to install required dependencies
+- Requests
 
 # Installation
-- If dependencies installed run setup.py
+- If Dependencies installed run setup.py. If Dependencies not installed  run dependencies.sh then run setup.py
