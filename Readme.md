@@ -1,18 +1,6 @@
 # CoinCommand
 Command line interface for getting CryptoCurrency information.
 
-# Examples
-
-CoinCommand cp -- currency USD 
-
-CoinCommand mined  BTC 
-
-CoinCommand algo  XVG 
-
-CoinCommand news EN
-
-
-
 
 
 # Demo
