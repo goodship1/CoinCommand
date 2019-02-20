@@ -1,5 +1,6 @@
 # CoinCommand
-Command line interface for getting CryptoCurrency information.
+CLI for cpytocompare api.
+
 
 
 
