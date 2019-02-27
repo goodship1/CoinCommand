@@ -13,5 +13,3 @@ CLI for cpytocompare api.
 - Click
 - Requests
 
-# Installation
-- If Dependencies installed run setup.py. If Dependencies not installed  run dependencies.sh then run setup.py
