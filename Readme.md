@@ -1,5 +1,5 @@
 # CoinCommand
-CLI for cpytocompare api.
+CLI for cryptocompare api.
 
 
 
