@@ -1,6 +1,7 @@
 import click
 import requests
 import ast
+from beautifultable import BeautifulTable
 from CoincommandExceptions import CoinDoesntExist
 
 
@@ -44,6 +45,7 @@ def formatting_Unicode_currency(request,price):
     #Todo add support to for £
 
 def price_Helper():
+    '''Finding a price API for pound to dollar'''
 	pass
 
 
@@ -101,7 +103,12 @@ def formatting_Unicode_coinsnapshot(request):
 cli.command()
 @click.argument('coin')
 def snapshot(coin):
-    pass
+    """returns a snap shot of coin information"""
+    coin_Snapshot_table = BeautifulTable()#creates a table
+    coin_Snapshot.table.columns = ['Coin name','Price','Mined','Algorithm']
+    
+    
+
 
 
 cli.command()
