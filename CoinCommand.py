@@ -98,10 +98,13 @@ def formatting_Unicode_coinsnapshot(request):
     return formatting_Of_coinsnapshot['Data']['Algorithm']
 
 
+cli.command()
+@click.argument('coin')
+def snapshot(coin):
+    pass
 
 
-
-@cli.command()
+cli.command()
 @click.argument('language')
 def news(language):
 	"""gets current news articles about coins"""
