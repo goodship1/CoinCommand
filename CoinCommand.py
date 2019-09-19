@@ -95,7 +95,7 @@ def algo_Request_to_Url(coin):
 
 
 def formatting_Unicode_coinsnapshot(request):
-    """formats request to data from coinsnapshot buts get algorithm data"""
+    """formats request to data from coinsnapshot  gets algorithm data"""
     formatting_Of_coinsnapshot = ast.literal_eval(request)
     return formatting_Of_coinsnapshot['Data']['Algorithm']
 
@@ -105,7 +105,13 @@ cli.command()
 def snapshot(coin):
     """returns a snap shot of coin information"""
     coin_Snapshot_table = BeautifulTable()#creates a table
-    coin_Snapshot.table.columns = ['Coin name','Price','Mined','Algorithm']
+    coin_Snapshot.table.columns = ['Name','Price','Mined','Algorithm']
+    coin_Price = cp_Request_to_Url(coin)
+    coin_Mined = mined_Request_to_Url(coin)
+    coin_Algorithm = algo_Request_to_Url(coin)
+    snap_shot_data = [coin,coin_Price,coin_Mined,coin_Algorithm]
+    click.ehco(snap_Shot_data)
+
 
     
 
