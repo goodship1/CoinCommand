@@ -20,12 +20,12 @@ def cp(coin,currency):
 	click.echo(cp_request_to_url(coin,currency))
 	
 
-def cp_request_to_url(coin,price):
+def cp_request_to_url(coin,currency):
 
     """Makes request to  https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"""
-    url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
+    url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,currency)
     request_To_url = requests.get(url)
-    return formatting_Unicode_currency(request_To_url.text,price)
+    return formatting_Unicode_currency(request_To_url.text,currency)
 
 
 
@@ -91,24 +91,24 @@ def formatting_Unicode_coinsnapshot(request):
     return formatting_Of_coinsnapshot['Data']['Algorithm']
 
 
-cli.command()
+@cli.command()
 @click.argument('coin')
-def snapshot(coin):
+@click.option('--currency',default = 'USD',help = 'Gives the user snap of coin information')
+def snapshot(coin,currency):
     """returns a snap shot of coin information"""
     coin_Snapshot_table = BeautifulTable()#creates a table
-    coin_Snapshot.table.columns = ['Name','Price','Mined','Algorithm']
-    coin_Price = cp_Request_to_Url(coin)
-    coin_Mined = mined_Request_to_Url(coin)
-    coin_Algorithm = algo_Request_to_Url(coin)
+    coin_Snapshot_table.columns = ['Name','Price','Mined','Algorithm']
+    coin_Price = cp_request_to_url(coin,currency)
+    coin_Mined = mined_request_to_url(coin)
+    coin_Algorithm = algo_request_to_url(coin)
     snap_shot_data = [coin,coin_Price,coin_Mined,coin_Algorithm]
-    click.ehco(snap_Shot_data)
+    click.echo(snap_shot_data)
 
 
     
 
 
-
-cli.command()
+@cli.command()
 @click.argument('language')
 def news(language):
 	"""gets current news articles about coins"""
@@ -129,6 +129,5 @@ def request_To_news(language):
 def formatting_News_unicode(request):
 	formatting_News_information = ast.literal_eval(request)
 	return formatting_News_information
-
 
 
