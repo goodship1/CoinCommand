@@ -46,7 +46,7 @@ def formatting_Unicode_currency(request,price):
 
 def price_Helper():
     '''Finding a price API for dollar to pound'''
-	pass
+    pass
 
 
 @cli.command()
