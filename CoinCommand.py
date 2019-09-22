@@ -2,7 +2,7 @@ import click
 import requests
 import ast
 from beautifultable import BeautifulTable
-from CoincommandExceptions import CoinDoesntExist
+
 
 
 
@@ -17,13 +17,10 @@ def cli():
 @click.argument('coin')
 def cp(coin,currency):
 	"""Gets coin price """
-	try:
-		click.echo(cp_Request_to_Url(coin,currency))
-	except Exception as err:
-		raise(CoinDoesntExist("coin doesn't exist"))
+	click.echo(cp_request_to_url(coin,currency))
+	
 
-
-def cp_Request_to_Url(coin,price):
+def cp_request_to_url(coin,price):
 
     """Makes request to  https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"""
     url="https://min-api.cryptocompare.com/data/price?fsym=%s&tsyms=%s"%(coin,price)
@@ -53,12 +50,9 @@ def price_Helper():
 @click.argument('coin')
 def mined(coin):
     """Mined gets the total coins mined"""
-    try:
-		click.echo(mined_Request_to_Url(coin))
-    except Exception as err:
-		raise(CoinDoesntExist("coin doesnt exist"))
-
-def mined_Request_to_Url(coin):
+    click.echo(mined_request_to_url(coin))
+		
+def mined_request_to_url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?"""
     url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
     request_To_url = requests.get(url)
@@ -77,15 +71,12 @@ def formatting_Unicode_mined(request):
 @click.argument('coin')
 def algo(coin):
 	""" gets the coin implementation algorithm"""
-	try:
-		click.echo(algo_Request_to_Url(coin))
-	except Exception as err:
-		raise(CoinDoesntExist("coin doesnt exist"))
-		
+	click.echo(algo_request_to_url(coin))
+	
 
 
 
-def algo_Request_to_Url(coin):
+def algo_request_to_url(coin):
     """Makes request to https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD"""
     url = 'https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=%s&tsym=USD'%coin
     request_To_Url =  requests.get(url)

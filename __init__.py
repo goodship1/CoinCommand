@@ -1,1 +1,1 @@
-from CoincommandExceptions import CoinDoesntExist
+from .CoincommandExceptions import CoinDoesntExist
