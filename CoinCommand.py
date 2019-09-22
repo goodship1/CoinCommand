@@ -39,11 +39,8 @@ def formatting_Unicode_currency(request,price):
 		return '$'+str(unicode_Format[price])
     if(price =='EUR'):
 		return euro+str(unicode_Format[price])
-    #Todo add support to for £
+    
 
-def price_Helper():
-    '''Finding a price API for dollar to pound'''
-    pass
 
 
 @cli.command()
@@ -114,10 +111,7 @@ def news(language):
 	"""gets current news articles about coins"""
 	click.echo(request_To_news(language))
 	
-@cli.command()
-@click.argument('coin')
-def filternew(coin):
-    pass
+
 
 def request_To_news(language):
 	url = 'https://min-api.cryptocompare.com/data/v2/news/?lang=%s'%language
